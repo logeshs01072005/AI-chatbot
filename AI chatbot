@@ -1,0 +1,20 @@
+import nltk
+from nltk.chat.util import (Chat, reflections)
+
+
+patterns = [(r'hi|hello|hey',['Hello!', 'Hi there!','Hey!']),
+            (r'how are you doing?',['I am doing well, thank you','I am fine, thanks for asking.']),
+            (r'what is your name?',['you can call me chatbot.', 'My name is chatbot']),
+            (r'quit',['Bye! Take care.','Goodbye, have a great day!']),]
+
+chatbot = Chat(patterns, reflections)
+
+print("Welcome! Type 'quit' to exit,")
+while True:
+    user_input = input("you:")
+
+    response=chatbot._substitute(user_input)
+
+    print("chatbot:", response)
+    if user_input == 'quit':
+        break
